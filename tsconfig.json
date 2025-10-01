@@ -23,6 +23,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@halo-ui/*": [
+        "./packages/halo-ui/*"
       ]
     },
     "target": "ES2017"
