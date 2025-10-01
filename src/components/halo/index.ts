@@ -26,6 +26,9 @@ export type { HaloSelectProps, HaloSelectOption } from "./HaloSelect";
 export { default as HaloDialog } from "./HaloDialog";
 export type { HaloDialogProps } from "./HaloDialog";
 
+export { default as HaloModal } from "./HaloModal";
+export type { HaloModalProps } from "./HaloModal";
+
 export { default as HaloBadge } from "./HaloBadge";
 export type { HaloBadgeProps } from "./HaloBadge";
 
@@ -46,6 +49,9 @@ export type { HaloSliderProps } from "./HaloSlider";
 
 export { default as HaloTabs } from "./HaloTabs";
 export type { HaloTabsProps, HaloTab } from "./HaloTabs";
+
+export { default as HaloAccordion } from "./HaloAccordion";
+export type { HaloAccordionProps, HaloAccordionItem } from "./HaloAccordion";
 
 export { default as HaloAlert } from "./HaloAlert";
 export type { HaloAlertProps } from "./HaloAlert";

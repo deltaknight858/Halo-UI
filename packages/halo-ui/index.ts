@@ -78,3 +78,11 @@ export type { StepWizardProps, StepDefinition, StepComponentProps, ValidationErr
 // Command Registry
 export { commandRegistry, registerCommand } from "../../src/lib/commandRegistry";
 export type { CommandDefinition, CommandGroup } from "../../src/lib/commandRegistry";
+/**
+ * Halo UI - Eco Theme Package
+ * 
+ * Export all theme configuration and tokens
+ */
+
+export { ecoTheme, ecoTokens, getEcoColor } from './theme';
+export type { EcoTheme } from './theme';
