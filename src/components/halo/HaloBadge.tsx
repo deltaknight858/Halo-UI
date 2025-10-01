@@ -24,9 +24,15 @@ const haloBadgeVariants = cva(
         success: "border-transparent bg-emerald-500/20 text-emerald-300",
         warning: "border-transparent bg-amber-500/20 text-amber-300",
       },
+      size: {
+        sm: "px-2 py-0.5 text-xs",
+        md: "px-2.5 py-0.5 text-xs",
+        lg: "px-3 py-1 text-sm",
+      },
     },
     defaultVariants: {
       variant: "primary",
+      size: "md",
     },
   }
 );
@@ -37,11 +43,11 @@ export interface HaloBadgeProps
   pulse?: boolean;
 }
 
-function HaloBadge({ className, variant, pulse, ...props }: HaloBadgeProps) {
+function HaloBadge({ className, variant, size, pulse, ...props }: HaloBadgeProps) {
   return (
     <div
       className={cn(
-        haloBadgeVariants({ variant }),
+        haloBadgeVariants({ variant, size }),
         pulse && "animate-pulse",
         className
       )}
