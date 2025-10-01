@@ -1,4 +1,4 @@
-<![CDATA["use client";
+"use client";
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
@@ -35,6 +35,7 @@ export interface HaloBadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof haloBadgeVariants> {
   pulse?: boolean;
+  size?: "sm" | "md" | "lg";
 }
 
 function HaloBadge({ className, variant, pulse, ...props }: HaloBadgeProps) {
@@ -51,4 +52,3 @@ function HaloBadge({ className, variant, pulse, ...props }: HaloBadgeProps) {
 }
 
 export default HaloBadge;
-]]>
