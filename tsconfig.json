@@ -24,6 +24,8 @@
       "@/*": [
         "./src/*"
       ],
+      "@eco/halo-ui": [
+        "./packages/halo-ui/index.ts"
       "@halo-ui/*": [
         "./packages/halo-ui/*"
       ]

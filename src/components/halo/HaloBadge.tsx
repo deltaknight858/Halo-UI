@@ -44,6 +44,7 @@ export interface HaloBadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof haloBadgeVariants> {
   pulse?: boolean;
+  size?: "sm" | "md" | "lg";
 }
 
 function HaloBadge({ className, variant, size, pulse, ...props }: HaloBadgeProps) {
@@ -59,5 +60,6 @@ function HaloBadge({ className, variant, size, pulse, ...props }: HaloBadgeProps
   );
 }
 
+export default HaloBadge;
 export default HaloBadge;
 export default HaloBadge;
