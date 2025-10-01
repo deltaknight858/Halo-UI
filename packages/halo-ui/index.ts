@@ -81,6 +81,15 @@ export { default as ThemeToggle } from "../../src/components/halo/ThemeToggle";
 export { default as StepWizard } from "../../src/components/halo/StepWizard";
 export type { StepWizardProps, StepDefinition, StepComponentProps, ValidationError } from "../../src/components/halo/StepWizard";
 
+export { default as HaloNavbar } from "../../src/components/halo/HaloNavbar";
+export { default as HaloSidebar } from "../../src/components/halo/HaloSidebar";
+export { default as HaloFileUpload } from "../../src/components/halo/HaloFileUpload";
+export { default as HaloDatePicker } from "../../src/components/halo/HaloDatePicker";
+export { default as HaloLoginForm } from "../../src/components/halo/HaloLoginForm";
+export { default as HaloRegisterForm } from "../../src/components/halo/HaloRegisterForm";
+export { default as HaloRating } from "../../src/components/halo/HaloRating";
+export { default as HaloThumbs } from "../../src/components/halo/HaloThumbs";
+
 // Command Registry
 export { commandRegistry, registerCommand } from "../../src/lib/commandRegistry";
 export type { CommandDefinition, CommandGroup } from "../../src/lib/commandRegistry";
