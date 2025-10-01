@@ -1,5 +1,5 @@
 import React from 'react';
-import { ecoTheme } from '@/../../packages/halo-ui';
+import { ecoTheme } from '@halo-ui/index';
 
 export default function EcoThemeDemo() {
   return (

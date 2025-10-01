@@ -3,10 +3,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Eco theme tokens */
-@import '../../packages/halo-ui/tokens.css';
-
 :root {
+  /* Eco Core Palette - CSS Variables */
+  /* Eco Purple - Primary brand color */
+  --eco-purple: 140 92 255;
+  --eco-purple-light: 160 120 255;
+  --eco-purple-dark: 120 72 220;
+  
+  /* Eco Cyan - Accent color */
+  --eco-cyan: 0 216 255;
+  --eco-cyan-light: 51 230 255;
+  --eco-cyan-dark: 0 180 220;
+  
+  /* Eco Orange - Warm accent */
+  --eco-orange: 255 140 50;
+  --eco-orange-light: 255 165 80;
+  --eco-orange-dark: 230 120 30;
+  
+  /* Eco Gold - Premium highlight */
+  --eco-gold: 255 200 50;
+  --eco-gold-light: 255 220 100;
+  --eco-gold-dark: 230 170 20;
+
+  /* Existing Halo variables */
   --halo-bg: 255 255 255;
   --halo-bg-elev: 248 248 252;
   --halo-fg: 12 14 20;
@@ -25,6 +44,24 @@
 }
 
 .dark {
+  /* Eco Core Palette - Dark mode (same colors work well in dark) */
+  --eco-purple: 140 92 255;
+  --eco-purple-light: 160 120 255;
+  --eco-purple-dark: 120 72 220;
+  
+  --eco-cyan: 0 216 255;
+  --eco-cyan-light: 51 230 255;
+  --eco-cyan-dark: 0 180 220;
+  
+  --eco-orange: 255 140 50;
+  --eco-orange-light: 255 165 80;
+  --eco-orange-dark: 230 120 30;
+  
+  --eco-gold: 255 200 50;
+  --eco-gold-light: 255 220 100;
+  --eco-gold-dark: 230 170 20;
+
+  /* Existing Halo dark variables */
   --halo-bg: 4 6 12;
   --halo-bg-elev: 16 18 28;
   --halo-fg: 236 240 255;
