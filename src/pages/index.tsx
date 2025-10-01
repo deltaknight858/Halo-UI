@@ -185,21 +185,21 @@ export default function HaloShowcase() {
             <div>
               <h4 className="font-semibold text-[rgb(var(--halo-fg))] mb-3">Form Controls</h4>
               <div className="space-y-3">
-                <HaloButton variant="primary" size="sm" className="w-full">Primary Button</HaloButton>
-                <HaloButton variant="secondary" size="sm" className="w-full">Secondary Button</HaloButton>
-                <HaloButton variant="glass" size="sm" className="w-full">Glass Button</HaloButton>
+                <HaloButton variant="primary" className="w-full">Primary Button</HaloButton>
+                <HaloButton variant="secondary" className="w-full">Secondary Button</HaloButton>
+                <HaloButton variant="glass" className="w-full">Glass Button</HaloButton>
               </div>
             </div>
             <div>
               <h4 className="font-semibold text-[rgb(var(--halo-fg))] mb-3">Feedback</h4>
               <div className="flex items-center gap-2 mb-3">
-                <HaloSpinner size="sm" variant="primary" />
+                <HaloSpinner variant="primary" />
                 <span className="text-sm text-[rgb(var(--halo-muted))]">Loading...</span>
               </div>
               <div className="flex gap-2">
-                <HaloBadge variant="primary" size="sm">New</HaloBadge>
-                <HaloBadge variant="tertiary" size="sm">Beta</HaloBadge>
-                <HaloBadge variant="ghost" size="sm">Draft</HaloBadge>
+                <HaloBadge variant="primary">New</HaloBadge>
+                <HaloBadge variant="tertiary">Beta</HaloBadge>
+                <HaloBadge variant="ghost">Draft</HaloBadge>
               </div>
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function HaloShowcase() {
               </p>
               
               <div className="flex items-center justify-center gap-2 mt-6">
-                <HaloBadge variant="glass" size="sm" className="animate-pulse">
+                <HaloBadge variant="glass" className="animate-pulse">
                   <CommandIcon size={12} className="mr-1" />
                   Press ⌘K for commands
                 </HaloBadge>
@@ -378,7 +378,7 @@ export default function HaloShowcase() {
                     label="Username"
                     placeholder="Enter username"
                     variant="elevated"
-                    size="sm"
+                   
                   />
                   
                   <HaloSelect
@@ -388,7 +388,7 @@ export default function HaloShowcase() {
                     onChange={setSelectValue}
                     placeholder="Choose option"
                     variant="elevated"
-                    size="sm"
+                   
                   />
                   
                   <div className="space-y-4">
@@ -397,7 +397,7 @@ export default function HaloShowcase() {
                       checked={toggleStates.notifications}
                       onChange={(checked) => setToggleStates({...toggleStates, notifications: checked})}
                       variant="primary"
-                      size="sm"
+                     
                     />
                     
                     <HaloToggle
@@ -405,7 +405,7 @@ export default function HaloShowcase() {
                       checked={toggleStates.animations}
                       onChange={(checked) => setToggleStates({...toggleStates, animations: checked})}
                       variant="tertiary"
-                      size="sm"
+                     
                     />
                   </div>
                 </div>
@@ -429,14 +429,14 @@ export default function HaloShowcase() {
                     onChange={setSliderValue}
                     showValue
                     variant="secondary"
-                    size="sm"
+                   
                   />
                   
                   <div className="flex items-center justify-between">
-                    <HaloSpinner size="sm" variant="tertiary" />
+                    <HaloSpinner variant="tertiary" />
                     <div className="flex gap-2">
-                      <HaloAvatar fallback="AI" size="sm" status="online" />
-                      <HaloAvatar fallback="UI" size="sm" status="away" variant="rounded" />
+                      <HaloAvatar fallback="AI" status="online" />
+                      <HaloAvatar fallback="UI" status="away" variant="rounded" />
                     </div>
                   </div>
                 </div>
@@ -517,21 +517,21 @@ export default function HaloShowcase() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-[rgb(var(--halo-fg))]">Loading states</span>
-                    <HaloSpinner size="sm" variant="primary" />
+                    <HaloSpinner variant="primary" />
                   </div>
                   
                   <div className="flex flex-wrap gap-2">
-                    <HaloBadge variant="primary" size="sm">Active</HaloBadge>
-                    <HaloBadge variant="secondary" size="sm" pulse>Live</HaloBadge>
-                    <HaloBadge variant="tertiary" size="sm">Premium</HaloBadge>
-                    <HaloBadge variant="glass" size="sm">Draft</HaloBadge>
+                    <HaloBadge variant="primary">Active</HaloBadge>
+                    <HaloBadge variant="secondary" pulse>Live</HaloBadge>
+                    <HaloBadge variant="tertiary">Premium</HaloBadge>
+                    <HaloBadge variant="glass">Draft</HaloBadge>
                   </div>
                   
                   <div className="grid grid-cols-2 gap-3">
-                    <HaloButton variant="ghost" size="sm" className="w-full" loading>
+                    <HaloButton variant="ghost" className="w-full" loading>
                       Processing
                     </HaloButton>
-                    <HaloButton variant="primary" size="sm" className="w-full">
+                    <HaloButton variant="primary" className="w-full">
                       Complete
                     </HaloButton>
                   </div>
@@ -559,7 +559,7 @@ export default function HaloShowcase() {
                 label="I understand the component capabilities"
                 checked={checkboxStates.terms}
                 onChange={(e) => setCheckboxStates({...checkboxStates, terms: e.target.checked})}
-                size="sm"
+               
               />
             </div>
             
@@ -587,10 +587,10 @@ export default function HaloShowcase() {
               Built with React, TypeScript, Framer Motion, and Tailwind CSS
             </p>
             <div className="flex justify-center gap-2">
-              <HaloBadge variant="glass" size="sm">Glassmorphism</HaloBadge>
-              <HaloBadge variant="glass" size="sm">Accessibility First</HaloBadge>
-              <HaloBadge variant="glass" size="sm">Neon Accents</HaloBadge>
-              <HaloBadge variant="glass" size="sm">Tree Shakeable</HaloBadge>
+              <HaloBadge variant="glass">Glassmorphism</HaloBadge>
+              <HaloBadge variant="glass">Accessibility First</HaloBadge>
+              <HaloBadge variant="glass">Neon Accents</HaloBadge>
+              <HaloBadge variant="glass">Tree Shakeable</HaloBadge>
             </div>
           </div>
         </footer>

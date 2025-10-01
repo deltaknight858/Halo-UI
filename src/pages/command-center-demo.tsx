@@ -301,7 +301,7 @@ export default function CommandCenterDemo() {
           <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/">
-                <HaloButton variant="ghost" size="sm" className="p-2">
+                <HaloButton variant="ghost" className="p-2">
                   <ArrowLeft size={18} />
                 </HaloButton>
               </Link>
@@ -312,12 +312,12 @@ export default function CommandCenterDemo() {
             </div>
             
             <div className="flex items-center gap-3">
-              <HaloBadge variant="primary" size="sm" className="hidden md:flex">
+              <HaloBadge variant="primary" className="hidden md:flex">
                 Press ⌘K or Ctrl+K
               </HaloBadge>
               <HaloButton 
                 variant="primary" 
-                size="sm"
+               
                 onClick={() => setIsOpen(true)}
               >
                 <CommandIcon size={16} />
@@ -435,7 +435,7 @@ export default function CommandCenterDemo() {
                       <Navigation size={16} className="text-[rgb(var(--halo-primary))]" />
                       <span className="text-sm text-[rgb(var(--halo-fg))]">Navigation</span>
                     </div>
-                    <HaloBadge variant="primary" size="sm">3 commands</HaloBadge>
+                    <HaloBadge variant="primary">3 commands</HaloBadge>
                   </div>
                   
                   <div className="flex items-center justify-between">
@@ -443,7 +443,7 @@ export default function CommandCenterDemo() {
                       <Zap size={16} className="text-[rgb(var(--halo-secondary))]" />
                       <span className="text-sm text-[rgb(var(--halo-fg))]">Actions</span>
                     </div>
-                    <HaloBadge variant="secondary" size="sm">5 commands</HaloBadge>
+                    <HaloBadge variant="secondary">5 commands</HaloBadge>
                   </div>
                   
                   <div className="flex items-center justify-between">
@@ -451,7 +451,7 @@ export default function CommandCenterDemo() {
                       <HelpCircle size={16} className="text-[rgb(var(--halo-tertiary))]" />
                       <span className="text-sm text-[rgb(var(--halo-fg))]">Help</span>
                     </div>
-                    <HaloBadge variant="tertiary" size="sm">3 commands</HaloBadge>
+                    <HaloBadge variant="tertiary">3 commands</HaloBadge>
                   </div>
                   
                   <div className="flex items-center justify-between">
@@ -459,7 +459,7 @@ export default function CommandCenterDemo() {
                       <Settings size={16} className="text-[rgb(var(--halo-muted))]" />
                       <span className="text-sm text-[rgb(var(--halo-fg))]">System</span>
                     </div>
-                    <HaloBadge variant="ghost" size="sm">2 commands</HaloBadge>
+                    <HaloBadge variant="ghost">2 commands</HaloBadge>
                   </div>
                 </div>
               </HaloCard>
@@ -479,7 +479,7 @@ export default function CommandCenterDemo() {
                   <div className="grid grid-cols-2 gap-3">
                     <HaloButton 
                       variant="primary" 
-                      size="sm" 
+                      
                       className="w-full"
                       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                     >
@@ -488,7 +488,7 @@ export default function CommandCenterDemo() {
                     
                     <HaloButton 
                       variant="secondary" 
-                      size="sm" 
+                      
                       className="w-full"
                       onClick={() => setShowAlert(true)}
                     >
@@ -499,7 +499,7 @@ export default function CommandCenterDemo() {
                   {isLoading && (
                     <div className="space-y-3">
                       <div className="flex items-center gap-2">
-                        <HaloSpinner size="sm" variant="primary" />
+                        <HaloSpinner variant="primary" />
                         <span className="text-sm text-[rgb(var(--halo-muted))]">Loading demo...</span>
                       </div>
                       <HaloProgress value={progress} variant="primary" showValue animated />

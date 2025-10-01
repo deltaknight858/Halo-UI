@@ -144,7 +144,7 @@ const ChatInterface = React.forwardRef<HTMLDivElement, ChatInterfaceProps>(
               <div className="p-2 rounded-full bg-[rgba(var(--halo-fg),0.08)] border border-[rgba(var(--halo-fg),0.1)]">
                 <IconComponent className="w-4 h-4 text-[rgb(var(--halo-fg))]" />
               </div>
-              <HaloBadge variant={config.badgeVariant} size="sm">
+              <HaloBadge variant={config.badgeVariant}>
                 {config.badge}
               </HaloBadge>
               {message.status === "streaming" && (

@@ -353,7 +353,7 @@ function SuccessStep({ data }: StepComponentProps) {
             </div>
             <div className="flex justify-between">
               <span className="text-[rgb(var(--halo-muted))]">Status:</span>
-              <HaloBadge variant="primary" size="sm">Active</HaloBadge>
+              <HaloBadge variant="primary">Active</HaloBadge>
             </div>
           </div>
         </HaloCard>
@@ -531,7 +531,7 @@ export default function StepWizardDemo() {
 
             {/* Reset Button */}
             <div className="text-center mt-8">
-              <HaloButton variant="ghost" onClick={resetWizard} size="sm">
+              <HaloButton variant="ghost" onClick={resetWizard}>
                 Reset Demo
               </HaloButton>
             </div>

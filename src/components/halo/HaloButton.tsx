@@ -7,7 +7,7 @@ const haloButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30",
+        primary: "bg-eco-orange text-eco-black hover:bg-eco-orange/90 shadow-lg shadow-eco-orange/20 hover:shadow-eco-orange/30",
         secondary: "bg-neutral-200 text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700",
         tertiary: "bg-transparent text-neutral-900 hover:bg-neutral-100 dark:text-neutral-50 dark:hover:bg-neutral-800",
         ghost: "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",

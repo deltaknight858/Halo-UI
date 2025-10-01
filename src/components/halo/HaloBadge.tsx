@@ -23,6 +23,9 @@ const haloBadgeVariants = cva(
         glass: "halo-glass text-[rgb(var(--halo-fg))]",
         success: "border-transparent bg-emerald-500/20 text-emerald-300",
         warning: "border-transparent bg-amber-500/20 text-amber-300",
+        bronze: "border-transparent bg-gradient-to-r from-eco-bronze-start to-eco-bronze-end text-white",
+        silver: "border-transparent bg-gradient-to-r from-eco-silver-start to-eco-silver-end text-white",
+        gold: "border-transparent bg-gradient-to-r from-eco-gold-start to-eco-gold-end text-white",
       },
       size: {
         sm: "px-2 py-0.5 text-xs",
@@ -56,4 +59,5 @@ function HaloBadge({ className, variant, size, pulse, ...props }: HaloBadgeProps
   );
 }
 
+export default HaloBadge;
 export default HaloBadge;
