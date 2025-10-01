@@ -61,5 +61,3 @@ function HaloBadge({ className, variant, size, pulse, ...props }: HaloBadgeProps
 }
 
 export default HaloBadge;
-export default HaloBadge;
-export default HaloBadge;
