@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Eco theme tokens */
+@import '../../packages/halo-ui/tokens.css';
+
 :root {
   --halo-bg: 255 255 255;
   --halo-bg-elev: 248 248 252;
