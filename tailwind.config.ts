@@ -85,7 +85,33 @@ const config: Config = {
   				'silver-end': 'rgb(var(--eco-silver-end) / <alpha-value>)',
   				'gold-start': 'rgb(var(--eco-gold-start) / <alpha-value>)',
   				'gold-end': 'rgb(var(--eco-gold-end) / <alpha-value>)',
+  			// Eco theme color mappings
+  			eco: {
+  				purple: {
+  					DEFAULT: 'rgb(var(--eco-purple) / <alpha-value>)',
+  					light: 'rgb(var(--eco-purple-light) / <alpha-value>)',
+  					dark: 'rgb(var(--eco-purple-dark) / <alpha-value>)',
+  				},
+  				cyan: {
+  					DEFAULT: 'rgb(var(--eco-cyan) / <alpha-value>)',
+  					light: 'rgb(var(--eco-cyan-light) / <alpha-value>)',
+  					dark: 'rgb(var(--eco-cyan-dark) / <alpha-value>)',
+  				},
+  				orange: {
+  					DEFAULT: 'rgb(var(--eco-orange) / <alpha-value>)',
+  					light: 'rgb(var(--eco-orange-light) / <alpha-value>)',
+  					dark: 'rgb(var(--eco-orange-dark) / <alpha-value>)',
+  				},
+  				gold: {
+  					DEFAULT: 'rgb(var(--eco-gold) / <alpha-value>)',
+  					light: 'rgb(var(--eco-gold-light) / <alpha-value>)',
+  					dark: 'rgb(var(--eco-gold-dark) / <alpha-value>)',
+  				}
   			}
+  		},
+  		fontFamily: {
+  			heading: ['Orbitron', 'sans-serif'],
+  			body: ['Inter', 'sans-serif'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
