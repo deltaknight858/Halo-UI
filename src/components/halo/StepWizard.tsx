@@ -279,7 +279,7 @@ export default function StepWizard({
                         {step.title}
                       </p>
                       {step.optional && (
-                        <HaloBadge variant="ghost" size="sm" className="mt-1">
+                        <HaloBadge variant="ghost" className="mt-1">
                           Optional
                         </HaloBadge>
                       )}

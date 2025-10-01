@@ -19,6 +19,16 @@
   --halo-duration-fast: 140ms;
   --halo-duration: 220ms;
   --halo-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  
+  /* Eco palette tokens */
+  --eco-orange: 255 140 0;
+  --eco-black: 0 0 0;
+  --eco-bronze-start: 205 127 50;
+  --eco-bronze-end: 139 69 19;
+  --eco-silver-start: 192 192 192;
+  --eco-silver-end: 128 128 128;
+  --eco-gold-start: 255 215 0;
+  --eco-gold-end: 218 165 32;
 }
 
 .dark {
@@ -32,6 +42,16 @@
   --halo-glass: 12 14 20 / 0.4;
   --halo-shadow: 0 12px 40px rgba(0,0,0,0.45);
   --halo-ring: 140 92 255;
+  
+  /* Eco palette tokens for dark mode */
+  --eco-orange: 255 140 0;
+  --eco-black: 255 255 255;
+  --eco-bronze-start: 205 127 50;
+  --eco-bronze-end: 139 69 19;
+  --eco-silver-start: 192 192 192;
+  --eco-silver-end: 128 128 128;
+  --eco-gold-start: 255 215 0;
+  --eco-gold-end: 218 165 32;
 }
 
 @layer base {
@@ -41,7 +61,12 @@
   
   body {
     @apply bg-[rgb(var(--halo-bg))] text-[rgb(var(--halo-fg))];
+    font-family: 'Inter', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
   }
 
   /* Glassmorphism base utilities */

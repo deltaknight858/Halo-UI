@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			heading: ['Orbitron', 'sans-serif'],
+  			body: ['Inter', 'sans-serif'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -70,6 +74,17 @@ const config: Config = {
   				secondary: 'rgb(var(--halo-secondary) / <alpha-value>)',
   				tertiary: 'rgb(var(--halo-tertiary) / <alpha-value>)',
   				ring: 'rgb(var(--halo-ring) / <alpha-value>)',
+  			},
+  			// Eco palette color mappings
+  			eco: {
+  				orange: 'rgb(var(--eco-orange) / <alpha-value>)',
+  				black: 'rgb(var(--eco-black) / <alpha-value>)',
+  				'bronze-start': 'rgb(var(--eco-bronze-start) / <alpha-value>)',
+  				'bronze-end': 'rgb(var(--eco-bronze-end) / <alpha-value>)',
+  				'silver-start': 'rgb(var(--eco-silver-start) / <alpha-value>)',
+  				'silver-end': 'rgb(var(--eco-silver-end) / <alpha-value>)',
+  				'gold-start': 'rgb(var(--eco-gold-start) / <alpha-value>)',
+  				'gold-end': 'rgb(var(--eco-gold-end) / <alpha-value>)',
   			}
   		},
   		borderRadius: {
