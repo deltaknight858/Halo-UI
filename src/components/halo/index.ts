@@ -90,6 +90,21 @@ export { default as HaloRegisterForm } from "./HaloRegisterForm";
 export { default as HaloRating } from "./HaloRating";
 export { default as HaloThumbs } from "./HaloThumbs";
 
+export { default as HaloTimeline } from "./HaloTimeline";
+export type { HaloTimelineProps, HaloTimelineItem } from "./HaloTimeline";
+
+export { default as HaloMindmap } from "./HaloMindmap";
+export type { HaloMindmapProps, HaloMindmapNode } from "./HaloMindmap";
+
+export { default as HaloMediaPlayer } from "./HaloMediaPlayer";
+export type { HaloMediaPlayerProps } from "./HaloMediaPlayer";
+
+export { default as HaloStepper } from "./HaloStepper";
+export type { HaloStepperProps, HaloStep } from "./HaloStepper";
+
+export { default as HaloStatCard } from "./HaloStatCard";
+export type { HaloStatCardProps } from "./HaloStatCard";
+
 // Command Registry
 export { commandRegistry, registerCommand } from "@/lib/commandRegistry";
 export type { CommandDefinition, CommandGroup } from "@/lib/commandRegistry";

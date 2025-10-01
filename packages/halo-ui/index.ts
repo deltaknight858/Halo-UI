@@ -90,6 +90,21 @@ export { default as HaloRegisterForm } from "../../src/components/halo/HaloRegis
 export { default as HaloRating } from "../../src/components/halo/HaloRating";
 export { default as HaloThumbs } from "../../src/components/halo/HaloThumbs";
 
+export { default as HaloTimeline } from "../../src/components/halo/HaloTimeline";
+export type { HaloTimelineProps, HaloTimelineItem } from "../../src/components/halo/HaloTimeline";
+
+export { default as HaloMindmap } from "../../src/components/halo/HaloMindmap";
+export type { HaloMindmapProps, HaloMindmapNode } from "../../src/components/halo/HaloMindmap";
+
+export { default as HaloMediaPlayer } from "../../src/components/halo/HaloMediaPlayer";
+export type { HaloMediaPlayerProps } from "../../src/components/halo/HaloMediaPlayer";
+
+export { default as HaloStepper } from "../../src/components/halo/HaloStepper";
+export type { HaloStepperProps, HaloStep } from "../../src/components/halo/HaloStepper";
+
+export { default as HaloStatCard } from "../../src/components/halo/HaloStatCard";
+export type { HaloStatCardProps } from "../../src/components/halo/HaloStatCard";
+
 // Command Registry
 export { commandRegistry, registerCommand } from "../../src/lib/commandRegistry";
 export type { CommandDefinition, CommandGroup } from "../../src/lib/commandRegistry";

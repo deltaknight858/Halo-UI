@@ -29,6 +29,9 @@
       ],
       "@halo-ui/*": [
         "./packages/halo-ui/*"
+      ],
+      "@halo-ui/components": [
+        "./src/components/halo/index.ts"
       ]
     },
     "target": "ES2017"
