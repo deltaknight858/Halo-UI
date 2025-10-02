@@ -748,6 +748,14 @@ export default function HaloShowcase() {
                 icon={<KeyRound className="w-8 h-8 text-emerald-400" />}
                 glowColor="from-emerald-500/50"
               />
+
+              <DemoCard
+                name="Neon-Glass Icons (Phase 2)"
+                description="Explore brand, utility, and bronze icons with neon-glass variants and animations."
+                href="/icon-system-phase2-demo"
+                icon={<Stars className="w-8 h-8 text-violet-400" />}
+                glowColor="from-violet-500/50"
+              />
             </div>
           </div>
         </section>
