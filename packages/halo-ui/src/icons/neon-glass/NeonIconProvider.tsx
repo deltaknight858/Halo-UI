@@ -7,7 +7,7 @@ import type { ProvenanceTier } from './types';
  * Enhanced with dynamic theming and performance optimization
  */
 
-interface NeonIconContextType {
+export interface NeonIconContextType {
   defaultTier?: ProvenanceTier;
   animated?: boolean;
   interactive?: boolean;
@@ -18,7 +18,9 @@ interface NeonIconContextType {
   animationDuration?: number;
 }
 
-interface NeonIconProviderProps extends NeonIconContextType {
+export interface NeonIconProviderProps extends NeonIconContextType {
+  /** Optional preset for simplified configuration */
+  themePreset?: 'default' | 'lightweight';
   children: ReactNode;
 }
 
@@ -38,26 +40,47 @@ export const NeonIconProvider: React.FC<NeonIconProviderProps> = ({
   theme = 'auto',
   performanceMode = 'optimal',
   animationDuration = 200,
+  themePreset = 'default',
 }) => {
+  // Apply preset defaults first, then allow explicit props to override
+  const presetDefaults: NeonIconContextType = useMemo(() => {
+    if (themePreset === 'lightweight') {
+      return {
+        defaultTier: 'silver',
+        animated: false,
+        interactive: false,
+        size: 'sm',
+        variant: 'minimal',
+        theme: 'auto',
+        performanceMode: 'minimal',
+        animationDuration: 120,
+      };
+    }
+    return {};
+  }, [themePreset]);
+
   // Memoize context value to prevent unnecessary re-renders
   const contextValue = useMemo(() => ({
+    defaultTier: defaultTier ?? presetDefaults.defaultTier,
+    animated: (performanceMode ?? presetDefaults.performanceMode) === 'minimal' 
+      ? false 
+      : (animated ?? presetDefaults.animated),
+    interactive: interactive ?? presetDefaults.interactive,
+    size: size ?? presetDefaults.size,
+    variant: variant ?? presetDefaults.variant,
+    theme: theme ?? presetDefaults.theme,
+    performanceMode: performanceMode ?? presetDefaults.performanceMode,
+    animationDuration: animationDuration ?? presetDefaults.animationDuration,
+  }), [
     defaultTier,
-    animated: performanceMode === 'minimal' ? false : animated,
+    animated,
     interactive,
     size,
     variant,
     theme,
     performanceMode,
     animationDuration,
-  }), [
-    defaultTier, 
-    animated, 
-    interactive, 
-    size, 
-    variant, 
-    theme, 
-    performanceMode, 
-    animationDuration
+    presetDefaults
   ]);
 
   return (

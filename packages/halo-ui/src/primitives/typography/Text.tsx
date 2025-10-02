@@ -110,9 +110,9 @@ const textVariants = cva(
 );
 
 interface TextProps 
-  extends React.HTMLAttributes<HTMLElement>,
+  extends Omit<React.ComponentPropsWithoutRef<'p'>, 'color'>,
     VariantProps<typeof textVariants> {
-  as?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'blockquote' | 'code' | 'pre';
+  as?: React.ElementType;
   animated?: boolean;
 }
 
@@ -149,7 +149,7 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
       }
     };
 
-    const Component = getComponent() as any;
+  const Component = (getComponent() as unknown) as React.ElementType;
 
     return (
       <Component

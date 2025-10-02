@@ -77,9 +77,9 @@ const containerVariants = cva(
 );
 
 interface ContainerProps 
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends React.ComponentPropsWithoutRef<'div'>,
     VariantProps<typeof containerVariants> {
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
 }
 
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -93,8 +93,9 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
     children,
     ...props 
   }, ref) => {
+    const Comp = Component as React.ElementType;
     return (
-      <Component
+      <Comp
         ref={ref}
         className={cn(
           containerVariants({ 
@@ -108,7 +109,7 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
         {...props}
       >
         {children}
-      </Component>
+      </Comp>
     );
   }
 );

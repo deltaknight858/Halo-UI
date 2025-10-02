@@ -99,9 +99,9 @@ const flexBoxVariants = cva(
 );
 
 interface FlexBoxProps 
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends React.ComponentPropsWithoutRef<'div'>,
     VariantProps<typeof flexBoxVariants> {
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   responsive?: {
     sm?: Partial<VariantProps<typeof flexBoxVariants>>;
     md?: Partial<VariantProps<typeof flexBoxVariants>>;
@@ -126,52 +126,101 @@ export const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
     children,
     ...props 
   }, ref) => {
+    // Map of single-variant classnames for responsive overrides
+    const variantClassMap: Record<string, Record<string, string>> = {
+      direction: {
+        row: 'flex-row',
+        column: 'flex-col',
+        'row-reverse': 'flex-row-reverse',
+        'column-reverse': 'flex-col-reverse',
+      },
+      justify: {
+        start: 'justify-start',
+        center: 'justify-center',
+        end: 'justify-end',
+        between: 'justify-between',
+        around: 'justify-around',
+        evenly: 'justify-evenly',
+      },
+      align: {
+        start: 'items-start',
+        center: 'items-center',
+        end: 'items-end',
+        stretch: 'items-stretch',
+        baseline: 'items-baseline',
+      },
+      wrap: {
+        nowrap: 'flex-nowrap',
+        wrap: 'flex-wrap',
+        'wrap-reverse': 'flex-wrap-reverse',
+      },
+      gap: {
+        none: 'gap-0',
+        xs: 'gap-1',
+        sm: 'gap-2',
+        md: 'gap-4',
+        lg: 'gap-6',
+        xl: 'gap-8',
+        '2xl': 'gap-12',
+      },
+      rounded: {
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+        full: 'rounded-full',
+      },
+      padding: {
+        none: 'p-0',
+        xs: 'p-1',
+        sm: 'p-2',
+        md: 'p-4',
+        lg: 'p-6',
+        xl: 'p-8',
+        '2xl': 'p-12',
+      },
+      // variant is intentionally excluded from responsive overrides here to avoid duplicating multi-class arrays
+    };
     // Generate responsive classes
     const getResponsiveClasses = () => {
       if (!responsive) return '';
-      
-      let classes = '';
-      
-      if (responsive.sm) {
-        Object.entries(responsive.sm).forEach(([key, value]) => {
-          if (value) classes += ` sm:${flexBoxVariants({ [key]: value }).split(' ').pop()}`;
-        });
-      }
-      
-      if (responsive.md) {
-        Object.entries(responsive.md).forEach(([key, value]) => {
-          if (value) classes += ` md:${flexBoxVariants({ [key]: value }).split(' ').pop()}`;
-        });
-      }
-      
-      if (responsive.lg) {
-        Object.entries(responsive.lg).forEach(([key, value]) => {
-          if (value) classes += ` lg:${flexBoxVariants({ [key]: value }).split(' ').pop()}`;
-        });
-      }
-      
-      if (responsive.xl) {
-        Object.entries(responsive.xl).forEach(([key, value]) => {
-          if (value) classes += ` xl:${flexBoxVariants({ [key]: value }).split(' ').pop()}`;
-        });
-      }
-      
-      return classes;
+
+  const classes: string[] = [];
+
+      const breakpoints = ['sm', 'md', 'lg', 'xl'] as const;
+      breakpoints.forEach(bp => {
+        const bpProps = responsive[bp];
+        if (bpProps) {
+          Object.entries(bpProps).forEach(([key, value]) => {
+            if (value) {
+              const map = variantClassMap[key as keyof typeof variantClassMap] as Record<string, string> | undefined;
+              const cls = map ? map[value as string] : undefined;
+              if (cls) classes.push(`${bp}:${cls}`);
+            }
+          });
+        }
+      });
+
+      return classes.join(' ');
     };
 
+    const Comp = Component as React.ElementType;
+
     return (
-      <Component
+      <Comp
         ref={ref}
         className={cn(
-          flexBoxVariants({ 
-            direction, 
-            justify, 
-            align, 
-            wrap, 
-            gap, 
-            variant, 
-            rounded, 
-            padding 
+          flexBoxVariants({
+            direction: direction as VariantProps<typeof flexBoxVariants>['direction'],
+            justify: justify as VariantProps<typeof flexBoxVariants>['justify'],
+            align: align as VariantProps<typeof flexBoxVariants>['align'],
+            wrap: wrap as VariantProps<typeof flexBoxVariants>['wrap'],
+            gap: gap as VariantProps<typeof flexBoxVariants>['gap'],
+            variant: variant as VariantProps<typeof flexBoxVariants>['variant'],
+            rounded: rounded as VariantProps<typeof flexBoxVariants>['rounded'],
+            padding: padding as VariantProps<typeof flexBoxVariants>['padding'],
           }),
           getResponsiveClasses(),
           className
@@ -179,7 +228,7 @@ export const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
         {...props}
       >
         {children}
-      </Component>
+      </Comp>
     );
   }
 );
