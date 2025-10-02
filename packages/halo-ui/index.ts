@@ -7,6 +7,9 @@ export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, 
 export { Input, type InputProps } from './src/components/Input';
 export { Badge, type BadgeProps } from './src/components/Badge';
 
+// Icon System (Neon-Glass)
+export * from './src/icons';
+
 // Utilities
 export { cn } from './src/lib/utils';
 
@@ -19,5 +22,5 @@ export const version = '0.1.0';
 export const HaloUI = {
   version: '0.1.0',
   name: '@eco/halo-ui',
-  description: 'Glassmorphism components with neon accents'
+  description: 'Glassmorphism components with neon accents and comprehensive icon system'
 };
