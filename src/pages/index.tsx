@@ -31,7 +31,7 @@ import ThemeLayout from "@/components/layout/ThemeLayout";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useToast } from "@/hooks/use-toast";
 
-const DemoCard = ({ name, description, href, icon, glowColor }: { name: string, description: string, href: string, icon: React.ReactNode, glowColor: string }) => (
+const DemoCard = ({ name, description, href, icon }: { name: string, description: string, href: string, icon: React.ReactNode }) => (
   <Link href={href} passHref>
     <Card className="h-full border-neutral-200/60 hover:border-purple-300/60 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 cursor-pointer group dark:border-neutral-800 dark:hover:border-purple-800/60">
       <CardContent className="p-6 space-y-4">
@@ -738,7 +738,6 @@ export default function HaloShowcase() {
                 description="Create multi-step processes with validation and progress tracking."
                 href="/step-wizard-demo"
                 icon={<Footprints className="w-8 h-8 text-rose-400" />}
-                glowColor="from-rose-500/50"
               />
 
               <DemoCard
@@ -746,7 +745,6 @@ export default function HaloShowcase() {
                 description="Secure input for API keys with masking, validation, and copy-to-clipboard."
                 href="/api-key-input-demo"
                 icon={<KeyRound className="w-8 h-8 text-emerald-400" />}
-                glowColor="from-emerald-500/50"
               />
 
               <DemoCard
@@ -754,7 +752,13 @@ export default function HaloShowcase() {
                 description="Explore brand, utility, and bronze icons with neon-glass variants and animations."
                 href="/icon-system-phase2-demo"
                 icon={<Stars className="w-8 h-8 text-violet-400" />}
-                glowColor="from-violet-500/50"
+              />
+
+              <DemoCard
+                name="Primitives (Layout & Text)"
+                description="Play with FlexBox, GridBox, Container, Stack, and Text primitives."
+                href="/primitives-demo"
+                icon={<Code className="w-8 h-8 text-indigo-400" />}
               />
             </div>
           </div>

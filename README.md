@@ -16,24 +16,28 @@ Halo UI represents the evolution of modern web interfaces, combining **glassmorp
 ## ✨ **Features**
 
 ### 🏗️ **Comprehensive Component System**
+
 - **Core Components**: Button, Card, Input, Badge with glassmorphism styling
 - **Icon System**: 11+ icons across 3 tiers (Gold/Silver/Bronze)
 - **Layout Primitives**: Flex, Grid, Stack, Container components
 - **Typography**: Responsive text system with neon accents
 
 ### 🎨 **Neon-Glass Design Language**
+
 - **Tier-Based Provenance**: Gold (Brand) → Silver (Enhanced) → Bronze (Standard)
 - **4 Variant Styles**: Filled, Outline, Glass, Minimal
 - **6 Size Options**: xs, sm, md, lg, xl, 2xl
 - **Dynamic Theming**: Light/Dark/Auto with CSS variables
 
 ### ⚡ **Performance & Accessibility**
+
 - **Tree-Shakeable**: Optimized bundle size (34KB ESM)
 - **Performance Modes**: Optimal vs Minimal animation control
 - **Full TypeScript**: Complete type safety and IntelliSense
 - **ARIA Compliant**: Keyboard navigation and screen reader support
 
 ### 🔧 **Developer Experience**
+
 - **Monorepo Architecture**: Organized workspace with pnpm
 - **Hot Reload**: Next.js with Turbopack for instant feedback
 - **Live Demos**: Interactive showcases for all components
@@ -44,11 +48,13 @@ Halo UI represents the evolution of modern web interfaces, combining **glassmorp
 ## 📦 **Installation**
 
 ### **Option 1: From Git Repository (Recommended)**
+
 ```bash
 npm install git+https://github.com/deltaknight858/eco-halo-ui.git
 ```
 
 ### **Option 2: Local Development**
+
 ```bash
 # Clone the repository
 git clone https://github.com/deltaknight858/Halo-UI.git
@@ -66,6 +72,7 @@ pnpm dev
 ## 🚀 **Quick Start**
 
 ### **Basic Usage**
+
 ```tsx
 import { Button, Card, NeonIconProvider, HomeIcon } from '@eco/halo-ui';
 
@@ -87,6 +94,7 @@ function App() {
 ```
 
 ### **Icon System**
+
 ```tsx
 // Gold Tier - Brand Icons
 import { HomeIcon, LogoIcon, SettingsIcon, ProfileIcon } from '@eco/halo-ui';
@@ -109,14 +117,17 @@ import { ArrowIcon, CloseIcon, MenuIcon, CheckIcon } from '@eco/halo-ui';
 Our comprehensive demo pages showcase the full power of the Halo UI system:
 
 ### 🏠 **Development Server**
+
 ```bash
 pnpm dev
 # Visit http://localhost:3000
 ```
 
 ### 📑 **Demo Pages**
+
 - **`/icon-system-demo`** - Phase 1 foundation showcase
 - **`/icon-system-phase2-demo`** - Complete 3-tier system
+
 ---
 
 ## 🏗️ **Architecture**
@@ -191,6 +202,7 @@ Halo-UI/
 ```
 
 ### **Component Variants**
+
 - **Filled**: Solid background with neon glow
 - **Outline**: Border-based with glass accents
 - **Glass**: Translucent with depth effects
@@ -201,18 +213,21 @@ Halo-UI/
 ## 🛠️ **Development Journey**
 
 ### **Phase 1: Foundation** ✅
+
 - Core neon-glass wrapper system
 - TypeScript architecture
 - NeonIconProvider context
 - HomeIcon & SearchIcon prototypes
 
 ### **Phase 2: Comprehensive Expansion** ✅
+
 - 3-tier provenance system (Gold/Silver/Bronze)
 - 11 total icons across all tiers
 - Dynamic theming & performance modes
 - Interactive demo showcases
 
 ### **Phase 3: Advanced Primitives** 🚧
+
 - Layout primitives (Flex, Grid, Stack)
 - Typography system with neon effects
 - Animation presets & micro-interactions
@@ -291,6 +306,7 @@ pnpm type-check   # TypeScript validation
 ```
 
 ### **Creating New Components**
+
 1. **Follow tier-based architecture** for icons
 2. **Use neon-glass wrapper** for consistency
 3. **Include TypeScript definitions** with full exports

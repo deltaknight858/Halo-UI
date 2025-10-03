@@ -1,0 +1,106 @@
+.haloIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem; /* rounded-xl */
+  transition: all 200ms ease-out;
+}
+
+/* Variants */
+.variantFilled {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, var(--halo-icon-bg, rgba(0,0,0,0.08)), rgba(0,0,0,0.1));
+  border: 1px solid var(--halo-icon-border, rgba(255,255,255,0.2));
+}
+
+.variantOutline {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.1);
+  border: 2px solid var(--halo-icon-border, rgba(255,255,255,0.3));
+}
+
+.variantGlass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.05));
+  border: 1px solid var(--halo-icon-border, rgba(255,255,255,0.2));
+}
+
+.variantMinimal {
+  background: transparent;
+  border: none;
+}
+
+/* Tier variables */
+.tierBronze {
+  --halo-icon-glow: #FF8C42;
+  --halo-icon-border: rgba(255, 140, 66, 0.4);
+  --halo-icon-bg: rgba(255, 140, 66, 0.08);
+  --halo-icon-accent: #FF6B1A;
+}
+
+.tierSilver {
+  --halo-icon-glow: #B8BCC8;
+  --halo-icon-border: rgba(184, 188, 200, 0.4);
+  --halo-icon-bg: rgba(184, 188, 200, 0.08);
+  --halo-icon-accent: #9CA3AF;
+}
+
+.tierGold {
+  --halo-icon-glow: #FFD700;
+  --halo-icon-border: rgba(255, 215, 0, 0.5);
+  --halo-icon-bg: rgba(255, 215, 0, 0.12);
+  --halo-icon-accent: #FFC107;
+}
+
+/* Size-specific glow geometry */
+.sizeXs { --halo-icon-glow-size: 0 0 8px 1px; }
+.sizeSm { --halo-icon-glow-size: 0 0 10px 1px; }
+.sizeMd { --halo-icon-glow-size: 0 0 12px 2px; }
+.sizeLg { --halo-icon-glow-size: 0 0 16px 2px; }
+.sizeXl { --halo-icon-glow-size: 0 0 20px 3px; }
+.size2xl { --halo-icon-glow-size: 0 0 24px 3px; }
+
+/* Layers */
+.iconContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--foreground));
+}
+
+.accented { color: var(--halo-icon-accent); }
+
+.glowLayer {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem; /* rounded-xl */
+  pointer-events: none;
+  box-shadow: var(--halo-icon-glow-size) var(--halo-icon-glow);
+}
+
+.tierBadge {
+  position: absolute;
+  top: -0.25rem; /* -top-1 */
+  right: -0.25rem; /* -right-1 */
+  width: 0.75rem; /* w-3 */
+  height: 0.75rem; /* h-3 */
+  border-radius: 9999px;
+  border-width: 2px;
+  border-color: hsl(var(--background));
+  box-shadow: 0 0 6px var(--halo-icon-glow);
+  background-color: var(--halo-icon-glow);
+}
+
+.focusRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  border-width: 2px;
+  border-color: transparent;
+}

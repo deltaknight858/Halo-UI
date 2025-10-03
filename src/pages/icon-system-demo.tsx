@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StepWizard from '../components/halo/StepWizard';
 import type { StepDefinition, StepComponentProps } from '../components/halo/StepWizard';
 import { HomeIcon } from '../../packages/halo-ui/src/icons/brand/HomeIcon';
@@ -175,8 +175,9 @@ const FeaturesStep: React.FC<StepComponentProps> = ({ onBack }) => {
   );
 };
 
+type StepPayload = unknown;
+
 const IconSystemDemo = () => {
-  const [allData, setAllData] = useState<Record<string, any>>({});
 
   const demoSteps: StepDefinition[] = [
     {
@@ -196,15 +197,17 @@ const IconSystemDemo = () => {
     }
   ];
 
-  const handleNext = (stepId: string, data?: any) => {
-    setAllData(prev => ({ ...prev, [stepId]: data }));
+  const handleNext = (stepId: string, data?: StepPayload) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.debug('Next from step', stepId, 'with', data);
+    }
   };
 
   const handleBack = (stepId: string) => {
     console.log('Back from step:', stepId);
   };
 
-  const handleFinish = (data: Record<string, any>) => {
+  const handleFinish = (data: Record<string, unknown>) => {
     console.log('Wizard finished with data:', data);
   };
 

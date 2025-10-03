@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../lib/utils';
-import type { NeonGlassIconProps, ProvenanceTier, IconSize, IconVariant, TierColors } from './types';
+import type { NeonGlassIconProps, IconSize } from './types';
 
 /**
  * NeonGlassIcon - Core wrapper component for the Halo UI icon system
@@ -14,27 +14,6 @@ import type { NeonGlassIconProps, ProvenanceTier, IconSize, IconVariant, TierCol
  * - Size and variant flexibility
  */
 
-// Tier-based color system with cinematic neon palette
-const tierColors: Record<ProvenanceTier, TierColors> = {
-  bronze: {
-    glow: '#FF8C42',
-    border: 'rgba(255, 140, 66, 0.4)',
-    background: 'rgba(255, 140, 66, 0.08)',
-    accent: '#FF6B1A'
-  },
-  silver: {
-    glow: '#B8BCC8',
-    border: 'rgba(184, 188, 200, 0.4)',
-    background: 'rgba(184, 188, 200, 0.08)',
-    accent: '#9CA3AF'
-  },
-  gold: {
-    glow: '#FFD700',
-    border: 'rgba(255, 215, 0, 0.5)',
-    background: 'rgba(255, 215, 0, 0.12)',
-    accent: '#FFC107'
-  }
-};
 
 // Responsive size mapping
 const sizeMapping: Record<IconSize, { container: string; icon: string; padding: string; glow: string }> = {
@@ -129,58 +108,36 @@ export const NeonGlassIcon: React.FC<NeonGlassIconProps> = ({
   'aria-label': ariaLabel,
   ...props
 }) => {
-  const colors = tierColors[tier];
   const sizing = sizeMapping[size];
 
-  // Dynamic styling based on variant
-  const getVariantStyles = () => {
-    const baseStyles = {
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)', // Safari support
-    };
-
-    switch (variant) {
-      case 'filled':
-        return {
-          ...baseStyles,
-          background: `linear-gradient(135deg, ${colors.background}, rgba(0,0,0,0.1))`,
-          border: `1px solid ${colors.border}`,
-        };
-      case 'outline':
-        return {
-          ...baseStyles,
-          background: 'rgba(0,0,0,0.1)',
-          border: `2px solid ${colors.border}`,
-        };
-      case 'glass':
-        return {
-          ...baseStyles,
-          background: `linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.05))`,
-          border: `1px solid ${colors.border}`,
-        };
-      case 'minimal':
-        return {
-          background: 'transparent',
-          border: 'none',
-        };
-      default:
-        return baseStyles;
-    }
-  };
-
-  const variantStyles = getVariantStyles();
+  // Variant-specific legacy styles are now handled via CSS modules.
 
   return (
     <motion.div
       className={cn(
-        'relative flex items-center justify-center rounded-xl',
-        'transition-all duration-200 ease-out',
+        'halo-icon',
         sizing.container,
         sizing.padding,
         interactive && 'cursor-pointer',
+        // Variant classes
+        variant === 'filled' && 'halo-icon--variant-filled',
+        variant === 'outline' && 'halo-icon--variant-outline',
+        variant === 'glass' && 'halo-icon--variant-glass',
+        variant === 'minimal' && 'halo-icon--variant-minimal',
+        // Tier classes (also set CSS variables)
+        tier === 'bronze' && 'halo-icon--tier-bronze',
+        tier === 'silver' && 'halo-icon--tier-silver',
+        tier === 'gold' && 'halo-icon--tier-gold',
+        // Size class for glow shape
+        size === 'xs' && 'halo-icon--size-xs',
+        size === 'sm' && 'halo-icon--size-sm',
+        size === 'md' && 'halo-icon--size-md',
+        size === 'lg' && 'halo-icon--size-lg',
+        size === 'xl' && 'halo-icon--size-xl',
+        size === '2xl' && 'halo-icon--size-2xl',
         className
       )}
-      style={variantStyles}
+      // preserve motion variants
       variants={interactive ? iconAnimations : undefined}
       initial="idle"
       whileHover={interactive ? "hover" : undefined}
@@ -193,13 +150,10 @@ export const NeonGlassIcon: React.FC<NeonGlassIconProps> = ({
       {/* Icon Content Container */}
       <div 
         className={cn(
-          'relative z-10 flex items-center justify-center',
+          'halo-icon__content',
           sizing.icon,
-          'text-foreground'
+          tier === 'gold' && 'halo-icon__content--accented'
         )}
-        style={{ 
-          color: tier === 'gold' ? colors.accent : undefined 
-        }}
       >
         {children}
       </div>
@@ -207,10 +161,7 @@ export const NeonGlassIcon: React.FC<NeonGlassIconProps> = ({
       {/* Neon Glow Effect */}
       {variant !== 'minimal' && (
         <motion.div
-          className="absolute inset-0 rounded-xl pointer-events-none"
-          style={{
-            boxShadow: `${sizing.glow} ${colors.glow}`,
-          }}
+          className={cn('halo-icon__glow')}
           variants={glowAnimations}
           initial="idle"
           animate={animated ? "pulse" : interactive ? "idle" : "idle"}
@@ -220,22 +171,12 @@ export const NeonGlassIcon: React.FC<NeonGlassIconProps> = ({
 
       {/* Tier Indicator Badge */}
       {tier === 'gold' && (
-        <div 
-          className="absolute -top-1 -right-1 w-3 h-3 rounded-full border-2 border-background shadow-lg"
-          style={{ 
-            backgroundColor: colors.glow,
-            boxShadow: `0 0 6px ${colors.glow}`
-          }}
-          aria-hidden="true"
-        />
+        <div className={'halo-icon__tier-badge'} aria-hidden="true" />
       )}
 
       {/* Interactive Focus Ring */}
       {interactive && (
-        <div 
-          className="absolute inset-0 rounded-xl border-2 border-transparent focus-within:border-current opacity-0 focus-within:opacity-50 transition-opacity"
-          style={{ borderColor: colors.glow }}
-        />
+        <div className={cn('halo-icon__focus-ring', 'focus-within:border-current opacity-0 focus-within:opacity-50 transition-opacity')} />
       )}
     </motion.div>
   );

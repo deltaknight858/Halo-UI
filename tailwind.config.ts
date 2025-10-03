@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 const config: Config = {
     darkMode: ["class"],
@@ -7,6 +8,21 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+	safelist: [
+		// Variable-based utilities used across components
+		'duration-[var(--halo-duration)]',
+		'duration-[var(--halo-duration-fast)]',
+		'ease-[var(--halo-ease)]',
+		// Common dynamic color utilities that Tailwind can't infer
+		'text-[rgb(var(--halo-fg))]',
+		'text-[rgb(var(--halo-muted))]',
+		'bg-[rgb(var(--halo-bg))]',
+		'border-[rgb(var(--halo-bg))]',
+		'border-[rgba(var(--halo-fg),0.1)]',
+		'border-[rgba(var(--halo-fg),0.2)]',
+		'focus:border-[rgba(var(--halo-primary),0.3)]',
+		'focus:shadow-[0_0_20px_rgba(var(--halo-primary),0.1)]',
+	],
   theme: {
   	extend: {
   		fontFamily: {
@@ -132,6 +148,6 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 };
 export default config;

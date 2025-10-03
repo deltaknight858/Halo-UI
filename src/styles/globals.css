@@ -112,12 +112,14 @@
   /* Glassmorphism base utilities */
   .halo-glass {
     background: rgba(var(--halo-glass));
+    -webkit-backdrop-filter: blur(var(--halo-blur));
     backdrop-filter: blur(var(--halo-blur));
     border: 1px solid rgba(var(--halo-fg), 0.1);
   }
 
   .halo-glass-strong {
     background: rgba(var(--halo-glass));
+    -webkit-backdrop-filter: blur(calc(var(--halo-blur) * 1.5));
     backdrop-filter: blur(calc(var(--halo-blur) * 1.5));
     border: 1px solid rgba(var(--halo-fg), 0.15);
   }
@@ -217,6 +219,103 @@
 }
 
 @layer utilities {
+  /* NeonGlassIcon global classes (replaces CSS module) */
+  .halo-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem; /* rounded-xl */
+    transition: all 200ms ease-out;
+  }
+
+  .halo-icon--variant-filled {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: linear-gradient(135deg, var(--halo-icon-bg, rgba(0,0,0,0.08)), rgba(0,0,0,0.1));
+    border: 1px solid var(--halo-icon-border, rgba(255,255,255,0.2));
+  }
+  .halo-icon--variant-outline {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.1);
+    border: 2px solid var(--halo-icon-border, rgba(255,255,255,0.3));
+  }
+  .halo-icon--variant-glass {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.05));
+    border: 1px solid var(--halo-icon-border, rgba(255,255,255,0.2));
+  }
+  .halo-icon--variant-minimal {
+    background: transparent;
+    border: none;
+  }
+
+  .halo-icon--tier-bronze {
+    --halo-icon-glow: #FF8C42;
+    --halo-icon-border: rgba(255, 140, 66, 0.4);
+    --halo-icon-bg: rgba(255, 140, 66, 0.08);
+    --halo-icon-accent: #FF6B1A;
+  }
+  .halo-icon--tier-silver {
+    --halo-icon-glow: #B8BCC8;
+    --halo-icon-border: rgba(184, 188, 200, 0.4);
+    --halo-icon-bg: rgba(184, 188, 200, 0.08);
+    --halo-icon-accent: #9CA3AF;
+  }
+  .halo-icon--tier-gold {
+    --halo-icon-glow: #FFD700;
+    --halo-icon-border: rgba(255, 215, 0, 0.5);
+    --halo-icon-bg: rgba(255, 215, 0, 0.12);
+    --halo-icon-accent: #FFC107;
+  }
+
+  .halo-icon--size-xs { --halo-icon-glow-size: 0 0 8px 1px; }
+  .halo-icon--size-sm { --halo-icon-glow-size: 0 0 10px 1px; }
+  .halo-icon--size-md { --halo-icon-glow-size: 0 0 12px 2px; }
+  .halo-icon--size-lg { --halo-icon-glow-size: 0 0 16px 2px; }
+  .halo-icon--size-xl { --halo-icon-glow-size: 0 0 20px 3px; }
+  .halo-icon--size-2xl { --halo-icon-glow-size: 0 0 24px 3px; }
+
+  .halo-icon__content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--foreground));
+  }
+  .halo-icon__content--accented { color: var(--halo-icon-accent); }
+
+  .halo-icon__glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem; /* rounded-xl */
+    pointer-events: none;
+    box-shadow: var(--halo-icon-glow-size) var(--halo-icon-glow);
+  }
+
+  .halo-icon__tier-badge {
+    position: absolute;
+    top: -0.25rem; /* -top-1 */
+    right: -0.25rem; /* -right-1 */
+    width: 0.75rem; /* w-3 */
+    height: 0.75rem; /* h-3 */
+    border-radius: 9999px;
+    border-width: 2px;
+    border-color: hsl(var(--background));
+    box-shadow: 0 0 6px var(--halo-icon-glow);
+    background-color: var(--halo-icon-glow);
+  }
+
+  .halo-icon__focus-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    border-width: 2px;
+    border-color: transparent;
+  }
   /* Custom border radius using CSS variables */
   .rounded-halo {
     border-radius: var(--halo-radius);

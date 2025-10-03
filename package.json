@@ -2,18 +2,21 @@
   "name": "halo-ui-monorepo",
   "version": "2.2.1",
   "private": true,
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@9.12.0",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbo -p 3002",
+    "dev:no-turbo": "next dev -p 3002",
+    "dev:mem": "node --max-old-space-size=4096 ./node_modules/next/dist/bin/next dev -p 3002",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@eco/halo-ui": "workspace:*",
+    "@eco/halo-ui": "file:packages/halo-ui",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.5",
